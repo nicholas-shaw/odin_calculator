@@ -1,0 +1,219 @@
+@font-face {
+  font-family: "DSEG7-Modern-Mini";
+  src: url("fonts/DSEG7ModernMini-Bold.woff") format("woff");
+}
+
+:root {
+  --calculator-color: #1e5947;
+  --calculator-side-color: #0e2a22;
+  --button-color: #1e5947;
+  --button-hover-color: #34987a;
+  --button-text-color: #f4f4f4;
+  --button-operator-color: #ff7215;
+  --button-hover-operator-color: #f9a064;
+  --button-operator-text-color: #f4f4f4;
+  --lcd-background: #7d6e4daa;
+  --lcd-off: #6d523d99;
+  --lcd-on: #1a180b;
+}
+
+html,
+body {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  background-color: azure;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-family: "Poiret One", sans-serif;
+  font-size: 15rem;
+  margin: 0;
+  padding: 0;
+  color: white;
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 1));
+  text-transform: uppercase;
+  text-align: center;
+  /* transform: rotate(-4deg); */
+  background-color: var(--calculator-color);
+}
+
+#appContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 5rem auto;
+  justify-content: center;
+  filter: drop-shadow(0px 2px 60px rgba(0, 0, 0, 0.3))
+    drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.6));
+}
+
+#sideEdge {
+  /* height: 100%; */
+  width: 2rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: var(--calculator-side-color);
+  transform: perspective(74px) rotateY(160deg);
+}
+
+#app {
+  width: 100%;
+  max-width: 35rem;
+  text-align: center;
+  background-color: var(--calculator-color);
+  padding: 3rem;
+  border-radius: 2rem;
+  transform: perspective(800px) rotateY(20deg);
+}
+
+.displayContainer {
+  position: relative;
+  font-family: "DSEG7-Modern-Mini", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  padding: 1.5rem 0;
+  height: 7rem;
+  /* border-top: 0.4rem solid #5d472f;
+  border-right: 0.2rem solid #5d472f; */
+  box-shadow: inset 2px 7px 10px rgba(0, 0, 0, 0.6);
+  background-color: #7d6e4daa;
+  color: #6d523d99;
+  margin: 0;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.displayContainer:before {
+}
+
+#lcdBackground {
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 1rem;
+  width: 92%;
+  overflow: hidden;
+}
+
+#calcDisplay {
+  text-align: left;
+  position: absolute;
+  margin: 0;
+  padding: 1rem 0;
+  top: 0rem;
+  left: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0);
+  width: 92%;
+  overflow: hidden;
+  font-family: "DSEG7-Modern-Mini", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  /* width: calc(100% - 2rem); */
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  color: #1a180b;
+  /* background-color: rgba(0, 255, 0, 0.2); */
+}
+
+#calcDisplay::placeholder {
+  color: #1a180b;
+}
+
+#operatorView {
+  display: flex;
+  flex-direction: row;
+  height: 3rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+#operatorView > p {
+  min-width: 2.5rem;
+  height: 2.4rem;
+  font-size: 2.4rem;
+  margin: 0 0.1em;
+  padding: 0.1rem;
+  /* border: 2px solid #1a180b; */
+}
+
+#lcdGlass {
+  position: absolute;
+  left: 35%;
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 20rem;
+  width: 50rem;
+  transform: rotate(23deg);
+}
+
+.activeOperator {
+  color: black;
+  padding: 0.5rem;
+  height: 2rem;
+}
+
+.buttonContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0.5rem;
+  position: relative;
+  margin: 1rem 2rem;
+}
+
+.calcButton {
+  position: relative;
+  user-select: none;
+  font-family: "Poiret One", sans-serif;
+  font-size: 4rem;
+  font-weight: 400;
+  color: #999;
+  padding: 0;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 3rem;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.6);
+  border-top: 3px solid white;
+  border-right: 1px solid #ccc;
+  border-bottom: 3px solid #555;
+  border-left: 1px solid #ccc;
+}
+
+.doubleWidthButton {
+  /* width: 13rem; */
+  grid-column: span 2;
+  width: auto;
+}
+
+.doubleHeightButton {
+  grid-row: span 2;
+  height: auto;
+}
+
+.calcButton:hover {
+  background-color: var(--button-hover-color);
+}
+
+.numberButton {
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  /* background: radial-gradient(#ffffff, #ffffff, #888888); */
+}
+
+.operatorButton {
+  background-color: var(--button-operator-color);
+  color: var(--button-operator-text-color);
+  top: -0.5rem;
+}
+
+.operatorButton:hover {
+  background-color: var(--button-hover-operator-color);
+}

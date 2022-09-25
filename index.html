@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Orbitron&family=Spicy+Rice&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/Flip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/Draggable.min.js"></script>
+    
+    <script src="main.js" defer></script>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <div id="appContainer">
+      <div id="sideEdge"></div>
+      <div id="app">
+        <div class="displayContainer">
+          <p id="lcdBackground">8.8.8.8.8.8.8.</p>
+          <p id="calcDisplay" />0</p>
+          <div id="operatorView">
+            <p data-operator="+" class="operatorDisplay">&#247;</span>
+            <p data-operator="-" class="operatorDisplay">&#8722;</span>
+            <p data-operator="*" class="operatorDisplay">&#215;</span>
+            <p data-operator="/" class="operatorDisplay">&#xf7;</span>
+          </div>
+          <div id="lcdGlass"></div>
+        </div>
+        <!-- <div class="displayContainer">
+          8888888
+          <input type="number" placeholder="0" id="calcDisplay" /></div> -->
+      
+      <div class="buttonContainer">
+        <button class="calcButton doubleWidthButton" data-key='c' value="clear">C</button>
+        <button class="calcButton operatorButton" data-key='/' value="/">÷</button>
+        <button class="calcButton operatorButton" data-key='*' value="*">×</button>
+        <button class="calcButton numberButton" data-key='7' value="7">7</button>
+        <button class="calcButton numberButton" data-key='8' value="8">8</button>
+        <button class="calcButton numberButton" data-key='9' value="9">9</button>
+        <button class="calcButton operatorButton" data-key='-' value="-">−</button>
+        <button class="calcButton numberButton" data-key='4' value="4">4</button>
+        <button class="calcButton numberButton" data-key='5' value="5">5</button>
+        <button class="calcButton numberButton" data-key='6' value="6">6</button>
+        <button class="calcButton operatorButton" data-key='+' value="+">+</button>
+        <button class="calcButton numberButton" data-key='1' value="1">1</button>
+        <button class="calcButton numberButton" data-key='2' value="2">2</button>
+        <button class="calcButton numberButton" data-key='3' value="3">3</button>
+        <button class="calcButton doubleHeightButton" data-key='=' value="=">=</button>
+        <button class="calcButton numberButton" data-key='.' value=".">.</button>
+        <button class="calcButton numberButton" data-key='0' value="0">0</button>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
